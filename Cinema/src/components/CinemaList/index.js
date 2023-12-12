@@ -8,19 +8,8 @@ const CinemaList = ({ cinemas }) => {
 			<FlatList
 				numColumns={1}
 				data={cinemas}
-				renderItem={({ item }) => {
-					return (
-						<CinemaThumbnail
-							id={item.id}
-							name={item.name}
-							address={item.address}
-							city={item.city}
-							phone={item.phone}
-							website={item.website}
-						/>
-					);
-				}}
-				keyExtractor={(item) => item.id}
+				renderItem={({ item }) => <CinemaThumbnail {...item} />}
+				keyExtractor={(item) => item.name}
 				contentContainerStyle={{ flexGrow: 1 }}
 				style={{ flex: 1 }}
 			/>

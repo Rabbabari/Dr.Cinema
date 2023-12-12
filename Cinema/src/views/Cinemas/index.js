@@ -4,7 +4,6 @@ import CinemaList from "../../components/CinemaList";
 
 const Cinemas = ({ route }) => {
 	const { data, isLoading, error } = useGetCinemasQuery();
-
 	if (isLoading) {
 		return <Text>Loading data...</Text>;
 	}
@@ -13,9 +12,12 @@ const Cinemas = ({ route }) => {
 		return <Text>Error occurred: {error.toString()}</Text>;
 	}
 
+	const sortedCinemas = [...data].sort((a, b) =>
+		a.name.localeCompare(b.name)
+	);
 	return (
 		<View style={{ flex: 1 }}>
-			<CinemaList cinemas={data} />
+			<CinemaList cinemas={sortedCinemas} />
 		</View>
 	);
 };
