@@ -1,9 +1,9 @@
 import { View, StyleSheet, Text, Image } from "react-native";
 import { useGetCinemasQuery } from "../../services/cinemaApi";
+import CinemaList from "../../components/CinemaList";
 
 export function Cinemas({ route }) {
 	const { data, isLoading, error } = useGetCinemasQuery();
-	console.log({ data, isLoading, error });
 
 	if (isLoading) {
 		return <Text>Loading data...</Text>;
@@ -14,17 +14,8 @@ export function Cinemas({ route }) {
 	}
 
 	return (
-		<View style={styles.container}>
-			{data?.map((cinema) => (
-				<View key={cinema.id} style={styles.cinemaCard}>
-					<Text style={styles.cinemaName}>{cinema.name}</Text>
-					<Text>Address: {cinema.address}</Text>
-					<Text>City: {cinema.city}</Text>
-					<Text>Phone: {cinema.phone}</Text>
-					<Text>Website: {cinema.website}</Text>
-					{/* Render HTML content safely */}
-				</View>
-			))}
+		<View style={{ flex: 1 }}>
+			<CinemaList cinemas={data} />
 		</View>
 	);
 }
