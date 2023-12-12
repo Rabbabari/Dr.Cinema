@@ -10,7 +10,11 @@ export const cinemaApi = createApi({
 		baseUrl: "https://api.kvikmyndir.is/",
 		prepareHeaders: (headers, { getState }) => {
 			// Get the token from your Redux store or any other source
-			const accessToken = selectAccessToken(getState());
+			//const accessToken = selectAccessToken(getState());
+			const accessToken =
+				"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
+
+			console.log("Token for request:", accessToken); // Add logging
 			// "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
 
 			if (accessToken) {
