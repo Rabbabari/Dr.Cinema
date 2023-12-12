@@ -14,7 +14,7 @@ export const cinemaApi = createApi({
 			const accessToken =
 				"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
 
-			console.log("Token for request:", accessToken); // Add logging
+			// console.log("Token for request:", accessToken); // Add logging
 			// "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
 
 			if (accessToken) {
@@ -63,9 +63,9 @@ export const cinemaApi = createApi({
 		// getMoviebyTitle: builder.query({
 		// 	query: (title) => `/movies/?title=${title}`,
 		// }),
-		// getMovies: builder.query({
-		// 	query: () => "/movies",
-		// }),
+		getMovies: builder.query({
+			query: () => "/movies",
+		}),
 	}),
 });
 
