@@ -7,7 +7,7 @@ const password = "3.Queens";
 export const cinemaApi = createApi({
 	reducerPath: "cinemaApi",
 	baseQuery: fetchBaseQuery({
-		baseUrl: "https://api.kvikmyndir.is",
+		baseUrl: "https://api.kvikmyndir.is/",
 		prepareHeaders: (headers, { getState }) => {
 			// Get the token from your Redux store or any other source
 			const accessToken = selectAccessToken(getState());
@@ -34,13 +34,27 @@ export const cinemaApi = createApi({
 			},
 		}),
 		getCinemas: builder.query({
-			query: () => "/theaters",
+			query: () => "theaters",
 		}),
 		getCinemaByName: builder.query({
-			query: (name) => `/theaters/${name}`,
+			query: (name) => `theaters/${name}`,
 		}),
 		getMoviesByCinema: builder.query({
-			query: (cinemaName) => `movies?cinema=${cinemaName}`,
+			query: () => "movies",
+			transformResponse: (response, queryArg) => {
+				// queryArg is the parameter passed to the query
+				const targetCinema = queryArg ? queryArg[0] : null;
+
+				// Assuming response is an array of movies with a 'showtimes' property
+				return targetCinema
+					? response.filter((movie) =>
+							movie.showtimes.some(
+								(showtime) =>
+									showtime.cinema.name === targetCinema
+							)
+					  )
+					: response;
+			},
 		}),
 		// getMoviebyTitle: builder.query({
 		// 	query: (title) => `/movies/?title=${title}`,
