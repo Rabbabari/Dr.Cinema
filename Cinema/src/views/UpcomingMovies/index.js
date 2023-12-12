@@ -1,10 +1,22 @@
 import React from "react";
-import { TouchableOpacity, View, Text } from "react-native";
+import { FlatList, View, Text } from "react-native";
+import UpcomingList from "../../components/UpcomingList";
+import { useGetUpcomingQuery } from "../../services/cinemaApi";
 
-const Upcoming = () => {
+const Upcoming = ({ route }) => {
+	const { data, isLoading, error } = useGetUpcomingQuery();
+	console.log("In upcoming view", data, isLoading, error);
 	return (
 		<View>
-			<Text>Upcoming movies should be here</Text>
+			{isLoading ? (
+				<Text>Loading movies</Text>
+			) : (
+				<FlatList
+					data={data}
+					keyExtractor={(p) => p.name}
+					renderItem={({ item }) => <UpcomingList {...item} />}
+				/>
+			)}
 		</View>
 	);
 };
