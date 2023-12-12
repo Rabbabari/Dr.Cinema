@@ -1,23 +1,34 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import { useGetMoviesQuery } from "../../services/cinemaApi";
 import CinemaInfo from "../../components/CinemaInfo";
+import MovieList from "../../components/MovieList";
 
 const CinemaDetails = ({ route }) => {
 	const { cinema } = route.params;
-	// const { data, isLoading, error } = useGetMoviesQuery();
-	// if (isLoading) {
-	// 	return <Text>Loading data...</Text>;
-	// }
+	const { data: movies, isLoading, error } = useGetMoviesQuery();
 
-	// if (error) {
-	// 	console.error(error); // Logs complete error object to console
-	// 	return <Text>Error occurred: {JSON.stringify(error, null, 2)}</Text>;
-	// }
+	if (isLoading) {
+		return <Text>Loading data...</Text>;
+	}
 
-	// console.log(data);
+	if (error) {
+		return <Text>Error occurred: {error.toString()}</Text>;
+	}
+
+	// Filter movies based on cinema name
+	const filteredMovies = movies.filter(
+		(movie) =>
+			movie.showtimes &&
+			movie.showtimes.some(
+				(showtime) =>
+					showtime.cinema && showtime.cinema.name === cinema.name
+			)
+	);
+
 	return (
 		<View style={{ flex: 1 }}>
 			<CinemaInfo cinema={cinema} />
+			<MovieList movies={filteredMovies} />
 		</View>
 	);
 };
