@@ -3,10 +3,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const username = "Rebekkal22";
 const password = "3.Queens";
-const initialState = {
-	accessToken: null,
-	// other auth properties...
-};
 
 export const cinemaApi = createApi({
 	reducerPath: "cinemaApi",
@@ -43,12 +39,15 @@ export const cinemaApi = createApi({
 		getCinemaByName: builder.query({
 			query: (name) => `/theaters/${name}`,
 		}),
-		getMoviebyTitle: builder.query({
-			query: (title) => `/movies/?title=${title}`,
+		getMoviesByCinema: builder.query({
+			query: (cinemaName) => `movies?cinema=${cinemaName}`,
 		}),
-		getMovies: builder.query({
-			query: () => "/movies",
-		}),
+		// getMoviebyTitle: builder.query({
+		// 	query: (title) => `/movies/?title=${title}`,
+		// }),
+		// getMovies: builder.query({
+		// 	query: () => "/movies",
+		// }),
 	}),
 });
 
@@ -56,7 +55,7 @@ export const {
 	useLoginMutation,
 	useGetCinemasQuery,
 	useGetCinemaByNameQuery,
-	useGetMovieByTitleQuery,
+	useGetMoviesByCinemaQuery,
 	useGetMoviesQuery,
 } = cinemaApi;
 
