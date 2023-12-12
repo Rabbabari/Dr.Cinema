@@ -1,5 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const username = "Rebekkal22";
+const password = "3.Queens";
+const initialState = {
+	accessToken: null,
+	// other auth properties...
+};
 
 export const cinemaApi = createApi({
 	reducerPath: "cinemaApi",
@@ -7,8 +14,8 @@ export const cinemaApi = createApi({
 		baseUrl: "https://api.kvikmyndir.is",
 		prepareHeaders: (headers, { getState }) => {
 			// Get the token from your Redux store or any other source
-			const accessToken =
-				"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
+			const accessToken = selectAccessToken(getState());
+			// "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
 
 			if (accessToken) {
 				// Add the X-Access-Token header
@@ -19,6 +26,17 @@ export const cinemaApi = createApi({
 		},
 	}),
 	endpoints: (builder) => ({
+		login: builder.mutation({
+			query: () => ({
+				url: baseUrl + "authenticate",
+				method: "POST",
+				body: { username: username, password: password },
+			}),
+			onSuccess: (response, { dispatch }) => {
+				const accessToken = response.token; // adjust based on your actual response structure
+				dispatch(setAccessToken(accessToken));
+			},
+		}),
 		getCinemas: builder.query({
 			query: () => "/theaters",
 		}),
@@ -35,8 +53,15 @@ export const cinemaApi = createApi({
 });
 
 export const {
+	useLoginMutation,
 	useGetCinemasQuery,
 	useGetCinemaByNameQuery,
 	useGetMovieByTitleQuery,
 	useGetMoviesQuery,
 } = cinemaApi;
+
+const selectAccessToken = (state) => state.auth.accessToken;
+const setAccessToken = (token) => ({
+	type: "auth/setAccessToken",
+	payload: token,
+});
