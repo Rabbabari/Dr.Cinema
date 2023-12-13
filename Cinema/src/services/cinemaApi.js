@@ -60,6 +60,9 @@ export const cinemaApi = createApi({
 					: response;
 			},
 		}),
+		getUpcoming: builder.query({
+			query: () => "upcoming",
+		}),
 		// getMoviebyTitle: builder.query({
 		// 	query: (title) => `/movies/?title=${title}`,
 		// }),
