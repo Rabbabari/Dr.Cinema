@@ -1,4 +1,11 @@
-import { View, Text, TouchableOpacity, Image, Linking } from "react-native";
+import {
+	View,
+	Text,
+	TouchableOpacity,
+	Image,
+	Linking,
+	ScrollView,
+} from "react-native";
 import styles from "./styles";
 
 const formatGenres = (genres) => {
@@ -34,38 +41,42 @@ const MovieInfo = ({
 	//console.log("MovieInfo");
 
 	return (
-		<View>
-			<Image style={styles.image} resizeMode='cover' source={photo} />
-			<Text>{name}</Text>
-			<Text>{year}</Text>
-			<Text>{plot}</Text>
-			<Text>Lengd kvikmyndar: {durationMinutes} min</Text>
-			<Text style={styles.textDescription}>{formatGenres(genres)}</Text>
-			<Text style={styles.textDescription}>
-				{cinemaName} - Showtimes:
-			</Text>
-			<View style={styles.showTimes}>
-				{showtimes
-					.filter((showtime) => showtime.cinema.name === cinemaName)
-					.flatMap((showtime) => showtime.schedule)
-					.map((schedule, index) => (
-						<TouchableOpacity
-							key={index}
-							onPress={() => handleClick(schedule.purchase_url)}
-						>
-							<Text>{schedule.time}</Text>
-							<Text
-								style={{
-									color: "blue",
-									textDecorationLine: "underline",
-								}}
-							>
-								Buy Tickets
-							</Text>
-						</TouchableOpacity>
-					))}
+		<ScrollView style={{ flex: 1 }}>
+			<View style={styles.container}>
+				<Image style={styles.image} resizeMode='cover' source={photo} />
 			</View>
-		</View>
+			<View style={styles.container}>
+				<Text style={styles.movieName}>{name}</Text>
+				<Text style={styles.textDescription}>{year}</Text>
+				<Text style={styles.textDescription}>{plot}</Text>
+				<Text style={styles.textDescription}>
+					Lengd kvikmyndar: {durationMinutes} min
+				</Text>
+				<Text style={styles.textDescription}>
+					{formatGenres(genres)}
+				</Text>
+				<Text style={styles.cinema}>{cinemaName}</Text>
+				<Text style={styles.cinemaRoom}>Sýningartími - Salur</Text>
+				<View style={styles.showTimes}>
+					{showtimes
+						.filter(
+							(showtime) => showtime.cinema.name === cinemaName
+						)
+						.flatMap((showtime) => showtime.schedule)
+						.map((schedule, index) => (
+							<TouchableOpacity
+								key={index}
+								onPress={() =>
+									handleClick(schedule.purchase_url)
+								}
+							>
+								<Text style={styles.time}>{schedule.time}</Text>
+								<Text style={styles.ticket}> Kaupa miða </Text>
+							</TouchableOpacity>
+						))}
+				</View>
+			</View>
+		</ScrollView>
 	);
 };
 

@@ -2,30 +2,61 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
 	container: {
-		width: 200,
 		flex: 1,
-		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+		paddingVertical: 10,
 	},
-	image: {
-		width: 100,
-		height: 100,
-		padding: 90,
-		margin: 10,
-	},
-	textName: {
+	movieName: {
 		fontWeight: "bold",
-		fontSize: 16,
+		fontSize: 30,
+		padding: 5,
 		textAlign: "center",
 		marginHorizontal: 10,
 	},
+	image: {
+		width: 300, // or any desired size
+		height: 400,
+	},
 	textDescription: {
+		padding: 5,
 		fontSize: 16,
 		textAlign: "center",
 		marginHorizontal: 10,
 	},
 	showTimes: {
-		flexDirection: "column",
 		flexWrap: "wrap",
 		justifyContent: "center",
+		alignItems: "center",
+		paddingLeft: 150,
+		paddingRight: 150,
+	},
+	time: {
+		fontSize: 20,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+	},
+	ticket: {
+		fontSize: 16,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+		color: "blue",
+		textDecorationLine: "underline",
+	},
+	cinema: {
+		fontWeight: "bold",
+		fontSize: 30,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+	},
+	cinemaRoom: {
+		fontWeight: "bold",
+		fontSize: 16,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
 	},
 });

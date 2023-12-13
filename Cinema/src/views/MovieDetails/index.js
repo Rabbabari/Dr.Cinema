@@ -3,12 +3,9 @@ import MovieInfo from "../../components/MovieInfo";
 
 const MovieDetails = ({ route }) => {
 	const { movie, cinemaName } = route.params;
-	console.log("MovieDetails");
-	console.log(movie);
-	console.log(cinemaName);
 
 	return (
-		<View>
+		<View style={{ flex: 1 }}>
 			<MovieInfo
 				id={movie.id}
 				name={movie.name}
