@@ -14,13 +14,13 @@ const Main = () => {
 				style={styles.button}
 				onPress={() => navigation.navigate("Kvikmyndahús")}
 			>
-				<Text style={styles.buttonText}>Cinemas</Text>
+				<Text style={styles.buttonText}>Kvikmyndahús</Text>
 			</TouchableOpacity>
 			<TouchableOpacity
 				style={styles.button}
 				onPress={() => navigation.navigate("Væntanlegt")}
 			>
-				<Text style={styles.buttonText}>Upcoming</Text>
+				<Text style={styles.buttonText}>Væntanlegt</Text>
 			</TouchableOpacity>
 		</View>
 	);
