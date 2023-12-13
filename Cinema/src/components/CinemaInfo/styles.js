@@ -2,44 +2,54 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	name: {
-		fontSize: 24,
+		fontSize: 26,
 		fontWeight: "bold",
 		color: "#333",
-		marginBottom: 8,
-		marginTop: 16, // Added top margin
-		marginLeft: 10, // Added left margin
+		marginBottom: 10,
+		marginTop: 20,
+		marginLeft: 16,
+		marginRight: 16,
 	},
 	description: {
 		fontSize: 16,
 		color: "#666",
 		lineHeight: 24,
-		marginBottom: 8,
-		marginLeft: 10, // Added left margin
+		marginBottom: 10,
+		marginLeft: 16,
+		marginRight: 16,
 	},
 	address: {
 		fontSize: 18,
 		color: "#444",
-		marginBottom: 4,
-		marginLeft: 10, // Added left margin
+		marginBottom: 6,
+		marginLeft: 16,
 	},
 	city: {
 		fontSize: 18,
 		color: "#444",
-		marginBottom: 4,
-		marginLeft: 10, // Added left margin
+		marginBottom: 6,
+		marginLeft: 16,
 	},
 	phone: {
 		fontSize: 18,
 		color: "#444",
-		marginBottom: 4,
-		marginLeft: 10, // Added left margin
+		marginBottom: 6,
+		marginLeft: 16,
 	},
 	website: {
 		fontSize: 18,
 		color: "#0056b3",
 		textDecorationLine: "underline",
-		marginBottom: 4,
-		marginLeft: 10, // Added left margin
+		marginBottom: 10,
+		marginLeft: 16,
+	},
+	showMore: {
+		fontSize: 16,
+		color: "#0056b3",
+		textDecorationLine: "underline",
+		marginBottom: 8,
+		marginLeft: 16,
+		alignSelf: "flex-start",
 	},
 });
 

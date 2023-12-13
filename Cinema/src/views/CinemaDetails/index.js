@@ -27,8 +27,11 @@ const CinemaDetails = ({ route }) => {
 
 	return (
 		<View style={{ flex: 1 }}>
-			<CinemaInfo cinema={cinema} />
-			<MovieList movies={filteredMovies} cinemaName={cinema.name} />
+			<MovieList
+				movies={filteredMovies}
+				cinemaName={cinema.name}
+				ListHeaderComponent={() => <CinemaInfo cinema={cinema} />}
+			/>
 		</View>
 	);
 };
