@@ -2,7 +2,7 @@ import { View, FlatList } from "react-native";
 import styles from "./styles";
 import MovieThumbnail from "../MovieThumbnail";
 
-const MovieList = ({ movies, cinemaName }) => {
+const MovieList = ({ movies, cinemaName, ListHeaderComponent }) => {
 	return (
 		<View style={styles.listContainer}>
 			<FlatList
@@ -34,7 +34,8 @@ const MovieList = ({ movies, cinemaName }) => {
 						/>
 					);
 				}}
-				keyExtractor={(movie) => movie.id}
+				keyExtractor={(movie) => movie.id.toString()}
+				ListHeaderComponent={ListHeaderComponent}
 				contentContainerStyle={{ flexGrow: 1 }}
 				style={{ flex: 1 }}
 			/>
