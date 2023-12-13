@@ -1,6 +1,18 @@
 import React, { useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, Linking } from "react-native";
 import styles from "./styles";
+
+const handleClick = (url) => {
+	Linking.canOpenURL(url)
+		.then((supported) => {
+			if (supported) {
+				Linking.openURL(url);
+			} else {
+				console.log("Don't know how to open URI: " + url);
+			}
+		})
+		.catch((err) => console.error("An error occurred", err));
+};
 
 const CinemaInfo = ({ cinema }) => {
 	const addressWithTabKey = "address\t";
@@ -39,7 +51,11 @@ const CinemaInfo = ({ cinema }) => {
 			<Text style={styles.address}>{cinema[addressWithTabKey]}</Text>
 			<Text style={styles.city}>{cinema.city}</Text>
 			<Text style={styles.phone}>{cinema.phone}</Text>
-			<Text style={styles.website}>{cinema.website}</Text>
+			<TouchableOpacity
+				onPress={() => handleClick("https://" + cinema.website)}
+			>
+				<Text style={styles.website}>{cinema.website}</Text>
+			</TouchableOpacity>
 		</View>
 	);
 };
