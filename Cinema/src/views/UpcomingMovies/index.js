@@ -5,7 +5,6 @@ import { useGetUpcomingQuery } from "../../services/cinemaApi";
 
 const Upcoming = ({ route }) => {
 	const { data, isLoading, error } = useGetUpcomingQuery();
-	// console.log("In upcoming view", data, isLoading, error);
 	if (isLoading) {
 		return <Text>Loading data...</Text>;
 	}
