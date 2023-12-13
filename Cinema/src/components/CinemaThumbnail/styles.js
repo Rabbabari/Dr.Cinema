@@ -1,17 +1,31 @@
 import { StyleSheet } from "react-native";
 
-export default StyleSheet.create({
-	text: {
-		margin: 13,
-		textAlign: "center",
-		fontWeight: "bold",
-		fontSize: 17,
-	},
+const styles = StyleSheet.create({
 	button: {
-		paddingVertical: 10,
-		marginVertical: 10,
-		marginHorizontal: 40,
+		backgroundColor: "white",
+		padding: 17,
+		borderWidth: 0.17,
 		borderColor: "black",
-		borderRadius: 10,
+		borderRadius: 24,
+		width: 300,
+		height: 70,
+		margin: 10,
+		marginVertical: 15,
+		elevation: 2,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 7,
+			height: 7,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 3.84,
+	},
+	text: {
+		color: "black",
+		fontSize: 16,
+		fontWeight: "bold",
+		textAlign: "center",
 	},
 });
+
+export default styles;
