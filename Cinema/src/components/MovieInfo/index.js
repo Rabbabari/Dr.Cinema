@@ -43,7 +43,7 @@ const MovieInfo = ({
 	return (
 		<ScrollView style={{ flex: 1 }}>
 			<View style={styles.container}>
-				<Image style={styles.image} resizeMode='cover' source={photo} />
+				<Image style={styles.image} resizeMode="cover" source={photo} />
 			</View>
 			<View style={styles.container}>
 				<Text style={styles.movieName}>{name}</Text>
@@ -76,6 +76,7 @@ const MovieInfo = ({
 						))}
 				</View>
 			</View>
+			<View style={styles.footer}></View>
 		</ScrollView>
 	);
 };
