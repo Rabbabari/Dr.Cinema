@@ -7,7 +7,7 @@ const CinemaThumbnail = (item) => {
 	return (
 		<TouchableOpacity
 			style={styles.button}
-			onPress={() => navigate("CinemaDetails", { cinema: item })}
+			onPress={() => navigate("Sýningar", { cinema: item })}
 		>
 			<View>
 				<Text style={styles.text}>{item.name}</Text>
