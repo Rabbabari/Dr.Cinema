@@ -1,5 +1,5 @@
 import { Text, View, TouchableOpacity } from "react-native";
-import { useGetMoviesByCinemaQuery } from "../../services/cinemaApi";
+import { useGetMoviesQuery } from "../../services/cinemaApi";
 import CinemaInfo from "../../components/CinemaInfo";
 import MovieList from "../../components/MovieList";
 
@@ -28,7 +28,7 @@ const CinemaDetails = ({ route }) => {
 	return (
 		<View style={{ flex: 1 }}>
 			<CinemaInfo cinema={cinema} />
-			<MovieList movies={filteredMovies} />
+			<MovieList movies={filteredMovies} cinemaName={cinema.name} />
 		</View>
 	);
 };

@@ -12,7 +12,7 @@ export const cinemaApi = createApi({
 			// Get the token from your Redux store or any other source
 			//const accessToken = selectAccessToken(getState());
 			const accessToken =
-				"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
+				"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjQ1ODk3NCwiZXhwIjoxNzAyNTQ1Mzc0fQ.y_1QP9gdnY9_YZ2rSpnLg-9QVeIVd-d-RKpSo8IkNNw";
 
 			// console.log("Token for request:", accessToken); // Add logging
 			// "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
@@ -66,6 +66,9 @@ export const cinemaApi = createApi({
 		getMovies: builder.query({
 			query: () => "/movies",
 		}),
+		getUpcoming: builder.query({
+			query: () => "/upcoming",
+		}),
 	}),
 });
 
@@ -75,6 +78,7 @@ export const {
 	useGetCinemaByNameQuery,
 	useGetMoviesByCinemaQuery,
 	useGetMoviesQuery,
+	useGetUpcomingQuery,
 } = cinemaApi;
 
 const selectAccessToken = (state) => state.auth.accessToken;

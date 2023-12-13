@@ -1,38 +1,25 @@
 import { Text, View, TouchableOpacity, FlatList } from "react-native";
-import MovieThumbnail from "../../components/MovieThumbnail";
+import MovieInfo from "../../components/MovieInfo";
 
-const MovieDetails = (movie) => {
+const MovieDetails = ({ route }) => {
+	const { movie, cinemaName } = route.params;
+	console.log("MovieDetails");
+	console.log(movie);
+	console.log(cinemaName);
+
 	return (
 		<View>
-			<Text>Movie Detail</Text>
-			<FlatList
-				data={movie}
-				renderItem={({
-					item: {
-						title,
-						poster,
-						plot,
-						durationMinutes,
-						year,
-						genres,
-						showtimes,
-					},
-				}) => {
-					return (
-						<MovieThumbnail
-							title={title}
-							poster={poster}
-							plot={plot}
-							durationMinutes={durationMinutes}
-							year={year}
-							genres={genres}
-							showtimes={showtimes}
-						/>
-					);
-				}}
-				contentContainerStyle={{ flexGrow: 1 }}
-				style={{ flex: 1 }}
-			></FlatList>
+			<MovieInfo
+				id={movie.id}
+				name={movie.name}
+				year={movie.year}
+				URL={movie.URL}
+				genres={movie.genres}
+				plot={movie.plot}
+				durationMinutes={movie.durationMinutes}
+				showtimes={movie.showtimes}
+				cinemaName={cinemaName}
+			/>
 		</View>
 	);
 };

@@ -2,13 +2,24 @@ import { View, FlatList } from "react-native";
 import styles from "./styles";
 import MovieThumbnail from "../MovieThumbnail";
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, cinemaName }) => {
 	return (
 		<View style={styles.listContainer}>
 			<FlatList
 				numColumns={2}
 				data={movies}
-				renderItem={({ item: { id, title, year, poster, genres } }) => {
+				renderItem={({
+					item: {
+						id,
+						title,
+						year,
+						poster,
+						genres,
+						plot,
+						durationMinutes,
+						showtimes,
+					},
+				}) => {
 					return (
 						<MovieThumbnail
 							id={id}
@@ -16,6 +27,10 @@ const MovieList = ({ movies }) => {
 							year={year}
 							URL={poster}
 							genres={genres}
+							plot={plot}
+							durationMinutes={durationMinutes}
+							showtimes={showtimes}
+							cinemaName={cinemaName}
 						/>
 					);
 				}}
