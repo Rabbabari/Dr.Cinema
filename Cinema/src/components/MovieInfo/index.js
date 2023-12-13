@@ -35,10 +35,7 @@ const MovieInfo = ({
 	showtimes,
 	cinemaName,
 }) => {
-	//console.log(cinemaName);
 	const photo = { uri: URL };
-	//console.log(id, name, year, URL, genres, plot, durationMinutes, cinemaName);
-	//console.log("MovieInfo");
 
 	return (
 		<ScrollView style={{ flex: 1 }}>

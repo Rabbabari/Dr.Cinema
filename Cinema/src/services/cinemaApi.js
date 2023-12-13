@@ -7,18 +7,11 @@ const password = "3.Queens";
 export const cinemaApi = createApi({
 	reducerPath: "cinemaApi",
 	baseQuery: fetchBaseQuery({
+
 		baseUrl: "https://api.kvikmyndir.is/",
-		prepareHeaders: (headers, { getState }) => {
-			// Get the token from your Redux store or any other source
-			//const accessToken = selectAccessToken(getState());
-			const accessToken =
-				"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjQ1ODk3NCwiZXhwIjoxNzAyNTQ1Mzc0fQ.y_1QP9gdnY9_YZ2rSpnLg-9QVeIVd-d-RKpSo8IkNNw";
-
-			// console.log("Token for request:", accessToken); // Add logging
-			// "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjY1NzZjNDk1YzQwNzkzMzZiYzAyNTIzNiIsImlhdCI6MTcwMjM2NzkzNCwiZXhwIjoxNzAyNDU0MzM0fQ.zrVrsgJUWQHDdSilWjP1JoUpnsBfQjigHp0JuHXsEu0";
-
+		prepareHeaders: async (headers, { getState }) => {
+			const accessToken = selectAccessToken(getState());
 			if (accessToken) {
-				// Add the X-Access-Token header
 				headers.set("x-Access-Token", accessToken);
 			}
 
@@ -28,9 +21,9 @@ export const cinemaApi = createApi({
 	endpoints: (builder) => ({
 		login: builder.mutation({
 			query: () => ({
-				url: baseUrl + "authenticate",
+				url:"authenticate",
 				method: "POST",
-				body: { username: username, password: password },
+				body: { username, password },
 			}),
 			onSuccess: (response, { dispatch }) => {
 				const accessToken = response.token;
@@ -43,29 +36,9 @@ export const cinemaApi = createApi({
 		getCinemaByName: builder.query({
 			query: (name) => `theaters/${name}`,
 		}),
-		getMoviesByCinema: builder.query({
-			query: () => "movies",
-			transformResponse: (response, queryArg) => {
-				// queryArg is the parameter passed to the query
-				const targetCinema = queryArg ? queryArg[0] : null;
-
-				// Assuming response is an array of movies with a 'showtimes' property
-				return targetCinema
-					? response.filter((movie) =>
-							movie.showtimes.some(
-								(showtime) =>
-									showtime.cinema.name === targetCinema
-							)
-					  )
-					: response;
-			},
-		}),
 		getUpcoming: builder.query({
 			query: () => "upcoming",
 		}),
-		// getMoviebyTitle: builder.query({
-		// 	query: (title) => `/movies/?title=${title}`,
-		// }),
 		getMovies: builder.query({
 			query: () => "/movies",
 		}),
@@ -79,7 +52,6 @@ export const {
 	useLoginMutation,
 	useGetCinemasQuery,
 	useGetCinemaByNameQuery,
-	useGetMoviesByCinemaQuery,
 	useGetMoviesQuery,
 	useGetUpcomingQuery,
 } = cinemaApi;
