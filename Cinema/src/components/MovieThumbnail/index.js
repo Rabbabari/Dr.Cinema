@@ -23,7 +23,7 @@ const MovieThumbnail = ({
 	return (
 		<TouchableOpacity
 			onPress={() =>
-				navigate("MovieDetails", {
+				navigate("Sýningartímar", {
 					movie: {
 						id,
 						name,
@@ -39,7 +39,7 @@ const MovieThumbnail = ({
 			}
 		>
 			<View style={styles.container}>
-				<Image style={styles.image} resizeMode='cover' source={photo} />
+				<Image style={styles.image} resizeMode="cover" source={photo} />
 				<Text style={styles.textName}>{name}</Text>
 				<Text style={styles.textDescription}>{year}</Text>
 				<Text style={styles.textDescription}>

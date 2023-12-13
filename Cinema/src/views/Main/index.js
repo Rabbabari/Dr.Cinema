@@ -12,13 +12,13 @@ const Main = () => {
 			<Image source={logo} style={styles.logo} />
 			<TouchableOpacity
 				style={styles.button}
-				onPress={() => navigation.navigate("Cinemas")}
+				onPress={() => navigation.navigate("Kvikmyndahús")}
 			>
 				<Text style={styles.buttonText}>Cinemas</Text>
 			</TouchableOpacity>
 			<TouchableOpacity
 				style={styles.button}
-				onPress={() => navigation.navigate("Upcoming")}
+				onPress={() => navigation.navigate("Væntanlegt")}
 			>
 				<Text style={styles.buttonText}>Upcoming</Text>
 			</TouchableOpacity>

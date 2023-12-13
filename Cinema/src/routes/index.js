@@ -14,12 +14,12 @@ import MovieDetails from "../views/MovieDetails";
 const Routes = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Main">
-				<Stack.Screen name="Main" component={Main} />
-				<Stack.Screen name="Cinemas" component={Cinemas} />
-				<Stack.Screen name="Upcoming" component={Upcoming} />
-				<Stack.Screen name="CinemaDetails" component={CinemaDetails} />
-				<Stack.Screen name="MovieDetails" component={MovieDetails} />
+			<Stack.Navigator initialRouteName="Forsíða">
+				<Stack.Screen name="Forsíða" component={Main} />
+				<Stack.Screen name="Kvikmyndahús" component={Cinemas} />
+				<Stack.Screen name="Væntanlegt" component={Upcoming} />
+				<Stack.Screen name="Sýningar" component={CinemaDetails} />
+				<Stack.Screen name="Sýningartímar" component={MovieDetails} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
