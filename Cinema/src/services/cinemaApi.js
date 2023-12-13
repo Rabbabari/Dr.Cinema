@@ -33,7 +33,7 @@ export const cinemaApi = createApi({
 				body: { username: username, password: password },
 			}),
 			onSuccess: (response, { dispatch }) => {
-				const accessToken = response.token; // adjust based on your actual response structure
+				const accessToken = response.token;
 				dispatch(setAccessToken(accessToken));
 			},
 		}),
@@ -59,6 +59,9 @@ export const cinemaApi = createApi({
 					  )
 					: response;
 			},
+		}),
+		getUpcoming: builder.query({
+			query: () => "upcoming",
 		}),
 		// getMoviebyTitle: builder.query({
 		// 	query: (title) => `/movies/?title=${title}`,
