@@ -33,7 +33,7 @@ export const cinemaApi = createApi({
 				body: { username: username, password: password },
 			}),
 			onSuccess: (response, { dispatch }) => {
-				const accessToken = response.token; // adjust based on your actual response structure
+				const accessToken = response.token;
 				dispatch(setAccessToken(accessToken));
 			},
 		}),
