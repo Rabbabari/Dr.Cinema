@@ -3,6 +3,7 @@ import CinemaThumbnail from "../CinemaThumbnail";
 import styles from "./styles";
 
 const CinemaList = ({ cinemas }) => {
+	const Footer = () => <View style={styles.footer}></View>;
 	return (
 		<View style={styles.cinemaContainer}>
 			<FlatList
@@ -10,6 +11,7 @@ const CinemaList = ({ cinemas }) => {
 				data={cinemas}
 				renderItem={({ item }) => <CinemaThumbnail {...item} />}
 				keyExtractor={(item) => item.name}
+				ListFooterComponent={Footer}
 				contentContainerStyle={{ flexGrow: 1 }}
 				style={{ flex: 1 }}
 			/>

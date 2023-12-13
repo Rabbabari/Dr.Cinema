@@ -3,6 +3,7 @@ import styles from "./styles";
 import MovieThumbnail from "../MovieThumbnail";
 
 const MovieList = ({ movies, cinemaName, ListHeaderComponent }) => {
+	const Footer = () => <View style={styles.footer}></View>;
 	return (
 		<View style={styles.listContainer}>
 			<FlatList
@@ -36,6 +37,7 @@ const MovieList = ({ movies, cinemaName, ListHeaderComponent }) => {
 				}}
 				keyExtractor={(movie) => movie.id.toString()}
 				ListHeaderComponent={ListHeaderComponent}
+				ListFooterComponent={Footer}
 				contentContainerStyle={{ flexGrow: 1 }}
 				style={{ flex: 1 }}
 			/>

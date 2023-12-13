@@ -7,4 +7,8 @@ export default StyleSheet.create({
 		backgroundColor: "white",
 		paddingHorizontal: 15,
 	},
+	footer: {
+		height: 40,
+		backgroundColor: "white",
+	},
 });

@@ -6,6 +6,7 @@ export default StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		paddingVertical: 10,
+		backgroundColor: "white",
 	},
 	movieName: {
 		fontWeight: "bold",
@@ -58,5 +59,9 @@ export default StyleSheet.create({
 		padding: 5,
 		textAlign: "center",
 		marginHorizontal: 10,
+	},
+	footer: {
+		height: 40,
+		backgroundColor: "white",
 	},
 });

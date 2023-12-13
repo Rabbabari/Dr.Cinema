@@ -3,6 +3,7 @@ import UpcomingThumbnail from "../UpcomingThumbnail";
 import styles from "./styles";
 
 const UpcomingList = ({ movies }) => {
+	const Footer = () => <View style={styles.footer}></View>;
 	return (
 		<View style={styles.movieContainer}>
 			<FlatList
@@ -17,6 +18,7 @@ const UpcomingList = ({ movies }) => {
 					/>
 				)}
 				keyExtractor={(item) => item.id}
+				ListFooterComponent={Footer}
 				contentContainerStyle={{ flexGrow: 1 }}
 				style={{ flex: 1 }}
 			/>
