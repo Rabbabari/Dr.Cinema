@@ -4,7 +4,7 @@ export default StyleSheet.create({
 	cinemaContainer: {
 		flex: 1,
 		flexDirection: "row",
-		padding: 10,
+		paddingHorizontal: 50,
 		backgroundColor: "white",
 	},
 });

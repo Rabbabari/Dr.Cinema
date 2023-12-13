@@ -26,7 +26,7 @@ const CinemaInfo = ({ cinema }) => {
 	};
 
 	return (
-		<View>
+		<View style={styles.container}>
 			<Text style={styles.name}>{cinema.name}</Text>
 			<Text style={styles.description}>{renderDescription()}</Text>
 			{cleanDescription.length > 100 && (
