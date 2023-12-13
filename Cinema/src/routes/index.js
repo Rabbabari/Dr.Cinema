@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { TouchableOpacity, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import styles from "./styles";
 
 const Stack = createStackNavigator();
 
@@ -24,16 +25,15 @@ const Routes = () => {
 					name="Sýningar"
 					component={CinemaDetails}
 					options={({ navigation }) => ({
-						title: "Forsíða",
 						headerRight: () => (
 							<TouchableOpacity
 								onPress={() => navigation.navigate("Forsíða")}
 								title="Home"
 							>
 								<AntDesign
-									// style={styles.icon}
+									style={styles.icon}
 									name="home"
-									size={30}
+									size={26}
 									color="black"
 								/>
 							</TouchableOpacity>
@@ -44,16 +44,15 @@ const Routes = () => {
 					name="Sýningartímar"
 					component={MovieDetails}
 					options={({ navigation }) => ({
-						title: "Forsíða",
 						headerRight: () => (
 							<TouchableOpacity
 								onPress={() => navigation.navigate("Forsíða")}
 								title="Home"
 							>
 								<AntDesign
-									// style={styles.icon}
+									style={styles.icon}
 									name="home"
-									size={30}
+									size={26}
 									color="black"
 								/>
 							</TouchableOpacity>
