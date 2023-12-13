@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-	cinemaContainer: {
+	movieContainer: {
 		flex: 1,
 		flexDirection: "row",
 		padding: 10,

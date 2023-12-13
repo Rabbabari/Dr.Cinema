@@ -5,17 +5,25 @@ import { useGetUpcomingQuery } from "../../services/cinemaApi";
 
 const Upcoming = ({ route }) => {
 	const { data, isLoading, error } = useGetUpcomingQuery();
-	console.log("In upcoming view", data, isLoading, error);
+	// console.log("In upcoming view", data, isLoading, error);
+	if (isLoading) {
+		return <Text>Loading data...</Text>;
+	}
+
+	if (error) {
+		return <Text>Error occurred: {error.toString()}</Text>;
+	}
+	const getReleaseDate = (movie) => new Date(movie.releaseDateIS);
+
+	const sortedMovies = [...data].sort(
+		(a, b) => getReleaseDate(a) - getReleaseDate(b)
+	);
 	return (
-		<View>
+		<View style={{ flex: 1 }}>
 			{isLoading ? (
 				<Text>Loading movies</Text>
 			) : (
-				<FlatList
-					data={data}
-					keyExtractor={(p) => p.name}
-					renderItem={({ item }) => <UpcomingList {...item} />}
-				/>
+				<UpcomingList movies={sortedMovies} />
 			)}
 		</View>
 	);
