@@ -1,14 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getAccessToken } from "../auth/authActions";
 
-// Example API URL
 const API_BASE_URL = "https://api.kvikmyndir.is/";
 
 // Async thunk for fetching cinemas
 export const fetchCinemasAsync = createAsyncThunk(
 	"cinemas/fetchCinemas",
-	async (_, { rejectWithValue }) => {
+	async (_, { rejectWithValue, getState }) => {
 		try {
-			const response = await fetch(`${API_BASE_URL}theaters`);
+			const accessToken = getAccessToken(getState());
+			const response = await fetch(`${API_BASE_URL}theaters`, {
+				headers: {
+					"x-access-token": accessToken,
+				},
+			});
 			const data = await response.json();
 			return data;
 		} catch (error) {
