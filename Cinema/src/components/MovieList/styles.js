@@ -4,11 +4,10 @@ export default StyleSheet.create({
 	listContainer: {
 		flex: 1,
 		flexDirection: "row",
-		backgroundColor: "white",
-		paddingHorizontal: 15,
+		backgroundColor: "black",
 	},
 	footer: {
 		height: 40,
-		backgroundColor: "white",
+		backgroundColor: "black",
 	},
 });

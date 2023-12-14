@@ -54,9 +54,10 @@ const CinemaInfo = ({ cinema }) => {
 					</Text>
 				</TouchableOpacity>
 			)}
-			<Text style={styles.address}>{cinema[addressWithTabKey]}</Text>
-			<Text style={styles.city}>{cinema.city}</Text>
-			<Text style={styles.phone}>{cinema.phone}</Text>
+			<Text style={styles.address}>
+				{cinema[addressWithTabKey]} | {cinema.city} | {cinema.phone}
+			</Text>
+
 			<TouchableOpacity
 				onPress={() => handleClick("https://" + cinema.website)}
 			>

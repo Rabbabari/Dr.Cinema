@@ -7,6 +7,7 @@ import {
 	ScrollView,
 } from "react-native";
 import styles from "./styles";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 // Function to format genres into a comma-separated string.
 const formatGenres = (genres) => {
@@ -44,7 +45,7 @@ const MovieInfo = ({
 	return (
 		<ScrollView style={{ flex: 1 }}>
 			<View style={styles.container}>
-				<Image style={styles.image} resizeMode="cover" source={photo} />
+				<Image style={styles.image} resizeMode='cover' source={photo} />
 			</View>
 			<View style={styles.container}>
 				<Text style={styles.movieName}>{name}</Text>
@@ -56,24 +57,36 @@ const MovieInfo = ({
 				<Text style={styles.textDescription}>
 					{formatGenres(genres)}
 				</Text>
+			</View>
+			<View style={styles.showTimeContainer}>
 				<Text style={styles.cinema}>{cinemaName}</Text>
 				<Text style={styles.cinemaRoom}>Sýningartími - Salur</Text>
 				<View style={styles.showTimes}>
 					{showtimes
 						.filter(
 							(showtime) => showtime.cinema.name === cinemaName
-						) // Filters showtimes by cinema.
-						.flatMap((showtime) => showtime.schedule) // Flattens the schedules for rendering.
+						)
+						.flatMap((showtime) => showtime.schedule)
 						.map((schedule, index) => (
-							<TouchableOpacity
-								key={index}
-								onPress={
-									() => handleClick(schedule.purchase_url) // Handles ticket purchase URL click.
-								}
-							>
+							<View key={index}>
 								<Text style={styles.time}>{schedule.time}</Text>
-								<Text style={styles.ticket}> Kaupa miða </Text>
-							</TouchableOpacity>
+								<TouchableOpacity
+									onPress={() =>
+										handleClick(schedule.purchase_url)
+									}
+								>
+									<Text style={styles.ticket}>
+										{" "}
+										Kaupa miða{" "}
+									</Text>
+									<AntDesign
+										style={styles.arrow}
+										name='arrowright'
+										size={30}
+										color='white'
+									/>
+								</TouchableOpacity>
+							</View>
 						))}
 				</View>
 			</View>
