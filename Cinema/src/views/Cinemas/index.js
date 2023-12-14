@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text, Image } from "react-native";
 import { useGetCinemasQuery } from "../../services/cinemaApi";
 import CinemaList from "../../components/CinemaList";
+import styles from "../../components/CinemaList/styles";
 
 const Cinemas = ({ route }) => {
 	const { data, isLoading, error } = useGetCinemasQuery();
@@ -17,6 +18,9 @@ const Cinemas = ({ route }) => {
 	);
 	return (
 		<View style={{ flex: 1 }}>
+			<Text style={styles.headerText}>
+				Veljið kvikmyndahús til að sjá sýningar
+			</Text>
 			<CinemaList cinemas={sortedCinemas} />
 		</View>
 	);

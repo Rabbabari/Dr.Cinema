@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
 	container: {
-		flexDirection: "row", // Set flexDirection to "row" to align items horizontally
+		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
 		padding: 10,
@@ -36,7 +36,14 @@ export default StyleSheet.create({
 		borderRadius: 24,
 		width: 150,
 		height: 40,
-		elevation: 5,
+		elevation: 2,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 7,
+			height: 7,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 3.84,
 	},
 	image: {
 		width: 150,

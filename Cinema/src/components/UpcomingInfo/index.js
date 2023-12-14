@@ -8,18 +8,23 @@ import {
 } from "react-native";
 import styles from "./styles";
 
+// Function to format genres into a comma-separated string.
 const formatGenres = (genres) => {
 	return genres.map((genre) => genre.Name).join(", ");
 };
+
+// Function to format actors into a comma-separated string.
 const formatActors = (actors) => {
 	return actors.map((actor) => actor.name).join(", ");
 };
 
+// Function to format the date into a specific string format.
 const formatDate = (date) => {
 	const options = { day: "2-digit", month: "2-digit", year: "numeric" };
 	return date.toLocaleDateString("en-GB", options).replace(/\//g, ".");
 };
 
+// Function to get the URL of the first trailer.
 const getFirstTrailerUrl = (trailers) => {
 	if (
 		trailers &&
@@ -32,6 +37,7 @@ const getFirstTrailerUrl = (trailers) => {
 	return null;
 };
 
+// Function to handle opening URLs.
 const handleClick = (url) => {
 	Linking.canOpenURL(url)
 		.then((supported) => {
@@ -44,6 +50,7 @@ const handleClick = (url) => {
 		.catch((err) => console.error("An error occurred", err));
 };
 
+// UpcomingInfo component for displaying detailed information about an upcoming movie.
 const UpcomingInfo = ({
 	name,
 	poster,
@@ -53,12 +60,13 @@ const UpcomingInfo = ({
 	trailers,
 	date,
 }) => {
-	const trailer = getFirstTrailerUrl(trailers);
-	const photo = { uri: poster };
-	const formattedDate = formatDate(new Date(date));
-	const formattedActors = formatActors(actors);
-	const formattedGenres = formatGenres(genres);
+	const trailer = getFirstTrailerUrl(trailers); // Fetches the first trailer URL.
+	const photo = { uri: poster }; // Constructs the source object for the movie's poster image.
+	const formattedDate = formatDate(new Date(date)); // Formats the release date.
+	const formattedActors = formatActors(actors); // Formats the actors list.
+	const formattedGenres = formatGenres(genres); // Formats the genres list.
 
+	// Renders the detailed information of the upcoming movie.
 	return (
 		<ScrollView style={{ flex: 1 }}>
 			<View style={styles.container}>

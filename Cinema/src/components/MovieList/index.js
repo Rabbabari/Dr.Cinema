@@ -2,8 +2,12 @@ import { View, FlatList } from "react-native";
 import styles from "./styles";
 import MovieThumbnail from "../MovieThumbnail";
 
+// MovieList component for rendering a list of movies.
 const MovieList = ({ movies, cinemaName, ListHeaderComponent }) => {
+	// Footer component for the FlatList.
 	const Footer = () => <View style={styles.footer}></View>;
+
+	// Renders a FlatList of movies.
 	return (
 		<View style={styles.listContainer}>
 			<FlatList
