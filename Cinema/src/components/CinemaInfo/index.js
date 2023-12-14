@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, TouchableOpacity, Linking } from "react-native";
 import styles from "./styles";
 
+// Function to handle opening URLs.
 const handleClick = (url) => {
 	Linking.canOpenURL(url)
 		.then((supported) => {
@@ -14,10 +15,12 @@ const handleClick = (url) => {
 		.catch((err) => console.error("An error occurred", err));
 };
 
+// Component to display cinema information.
 const CinemaInfo = ({ cinema }) => {
 	const addressWithTabKey = "address\t";
 	const [showFullDescription, setShowFullDescription] = useState(false);
 
+	// Cleans up the cinema description by removing extra spaces, HTML tags, etc.
 	const cleanDescription = cinema.description
 		? cinema.description
 				.replace(/\r\n/g, "\n")
@@ -26,10 +29,12 @@ const CinemaInfo = ({ cinema }) => {
 				.trim()
 		: "";
 
+	// Toggles the visibility of the full description.
 	const toggleDescription = () => {
 		setShowFullDescription(!showFullDescription);
 	};
 
+	// Determines how much of the description to render.
 	const renderDescription = () => {
 		if (showFullDescription || cleanDescription.length <= 100) {
 			return cleanDescription;
@@ -37,6 +42,7 @@ const CinemaInfo = ({ cinema }) => {
 		return `${cleanDescription.substring(0, 100)}...`;
 	};
 
+	// The JSX for rendering the cinema information.
 	return (
 		<View style={styles.container}>
 			<Text style={styles.name}>{cinema.name}</Text>
