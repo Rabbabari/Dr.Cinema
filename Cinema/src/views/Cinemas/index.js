@@ -1,13 +1,26 @@
-import { View, StyleSheet, Text, Image } from "react-native";
-import { useGetCinemasQuery } from "../../services/cinemaApi";
+import React, { useEffect } from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	fetchCinemasAsync,
+	selectCinemas,
+	selectIsLoading,
+	selectError,
+} from "../../redux/features/cinemas/cinemasSlice";
 import CinemaList from "../../components/CinemaList";
 import styles from "../../components/CinemaList/styles";
 
 // Cinemas view for displaying a list of cinemas.
 const Cinemas = ({ route }) => {
-	const { data, isLoading, error } = useGetCinemasQuery(); // Uses a custom hook to fetch cinemas data.
+	const dispatch = useDispatch();
+	const cinemas = useSelector(selectCinemas);
+	const isLoading = useSelector(selectIsLoading);
+	const error = useSelector(selectError);
 
-	// Displays a loading message while the data is being fetched.
+	useEffect(() => {
+		dispatch(fetchCinemasAsync());
+	}, [dispatch]);
+
 	if (isLoading) {
 		return <Text>Loading data...</Text>;
 	}
@@ -18,11 +31,12 @@ const Cinemas = ({ route }) => {
 	}
 
 	// Sorts the fetched cinemas alphabetically by their name.
-	const sortedCinemas = [...data].sort((a, b) =>
+	const sortedCinemas = [...cinemas].sort((a, b) =>
 		a.name.localeCompare(b.name)
 	);
 
 	// Renders the sorted list of cinemas.
+
 	return (
 		<View style={{ flex: 1, backgroundColor: "white" }}>
 			<Text style={styles.headerText}>

@@ -1,12 +1,27 @@
-import { Text, View, TouchableOpacity } from "react-native";
-import { useGetMoviesQuery } from "../../services/cinemaApi";
+import React, { useEffect } from "react";
+import { Text, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	fetchMoviesAsync,
+	selectMovies,
+	selectIsLoading,
+	selectMoviesError,
+} from "../../redux/features/movies/moviesSlice";
 import CinemaInfo from "../../components/CinemaInfo";
 import MovieList from "../../components/MovieList";
 
 // CinemaDetails view for displaying the details of a specific cinema.
 const CinemaDetails = ({ route }) => {
-	const { cinema } = route.params; // Extracts cinema details from the route parameters.
-	const { data: movies, isLoading, error } = useGetMoviesQuery(); // Uses a custom hook to fetch movies data.
+	const dispatch = useDispatch();
+	const cinema = route.params.cinema;
+	const movies = useSelector(selectMovies);
+	const isLoading = useSelector(selectIsLoading);
+	const error = useSelector(selectMoviesError);
+
+	useEffect(() => {
+		dispatch(fetchMoviesAsync());
+	}, [dispatch]);
+
 
 	// Displays a loading message while the data is being fetched.
 	if (isLoading) {
