@@ -67,9 +67,6 @@ const UpcomingInfo = ({
 			<View style={styles.container}>
 				<Text style={styles.movieName}>{name}</Text>
 				<Text style={styles.textDescription}>{formattedDate}</Text>
-				<Text style={styles.textDescription}>{plot}</Text>
-				<Text style={styles.textDescription}>{formattedGenres}</Text>
-				<Text style={styles.textDescription}>{formattedActors}</Text>
 				{trailer && (
 					<TouchableOpacity
 						style={styles.button}
@@ -78,6 +75,9 @@ const UpcomingInfo = ({
 						<Text style={styles.buttonText}>Trailer</Text>
 					</TouchableOpacity>
 				)}
+				<Text style={styles.textDescription}>{plot}</Text>
+				<Text style={styles.textDescription}>{formattedGenres}</Text>
+				<Text style={styles.textDescription}>{formattedActors}</Text>
 			</View>
 			<View style={styles.footer}></View>
 		</ScrollView>
