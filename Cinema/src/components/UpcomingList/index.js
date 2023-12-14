@@ -2,8 +2,12 @@ import { View, FlatList } from "react-native";
 import UpcomingThumbnail from "../UpcomingThumbnail";
 import styles from "./styles";
 
+// UpcomingList component for rendering a list of upcoming movies.
 const UpcomingList = ({ movies }) => {
+	// Footer component for the FlatList.
 	const Footer = () => <View style={styles.footer}></View>;
+
+	// Renders the list of upcoming movies.
 	return (
 		<View style={styles.movieContainer}>
 			<FlatList

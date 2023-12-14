@@ -8,7 +8,9 @@ import {
 	selectError,
 } from "../../redux/features/cinemas/cinemasSlice";
 import CinemaList from "../../components/CinemaList";
+import styles from "../../components/CinemaList/styles";
 
+// Cinemas view for displaying a list of cinemas.
 const Cinemas = ({ route }) => {
 	const dispatch = useDispatch();
 	const cinemas = useSelector(selectCinemas);
@@ -23,16 +25,23 @@ const Cinemas = ({ route }) => {
 		return <Text>Loading data...</Text>;
 	}
 
+	// Displays an error message if there is an error in data fetching.
 	if (error) {
 		return <Text>Error occurred: {error.toString()}</Text>;
 	}
 
+	// Sorts the fetched cinemas alphabetically by their name.
 	const sortedCinemas = [...cinemas].sort((a, b) =>
 		a.name.localeCompare(b.name)
 	);
 
+	// Renders the sorted list of cinemas.
+
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ flex: 1, backgroundColor: "white" }}>
+			<Text style={styles.headerText}>
+				Veljið kvikmyndahús til að sjá sýningar
+			</Text>
 			<CinemaList cinemas={sortedCinemas} />
 		</View>
 	);

@@ -8,10 +8,12 @@ import {
 } from "react-native";
 import styles from "./styles";
 
+// Function to format genres into a comma-separated string.
 const formatGenres = (genres) => {
 	return genres.map((genre) => genre.Name).join(", ");
 };
 
+// Function to handle opening URLs.
 const handleClick = (url) => {
 	Linking.canOpenURL(url)
 		.then((supported) => {
@@ -24,6 +26,7 @@ const handleClick = (url) => {
 		.catch((err) => console.error("An error occurred", err));
 };
 
+// MovieInfo component for displaying detailed movie information.
 const MovieInfo = ({
 	id,
 	name,
@@ -35,8 +38,9 @@ const MovieInfo = ({
 	showtimes,
 	cinemaName,
 }) => {
-	const photo = { uri: URL };
+	const photo = { uri: URL }; // Photo URL for the movie.
 
+	// Renders the movie information.
 	return (
 		<ScrollView style={{ flex: 1 }}>
 			<View style={styles.container}>
@@ -58,13 +62,13 @@ const MovieInfo = ({
 					{showtimes
 						.filter(
 							(showtime) => showtime.cinema.name === cinemaName
-						)
-						.flatMap((showtime) => showtime.schedule)
+						) // Filters showtimes by cinema.
+						.flatMap((showtime) => showtime.schedule) // Flattens the schedules for rendering.
 						.map((schedule, index) => (
 							<TouchableOpacity
 								key={index}
-								onPress={() =>
-									handleClick(schedule.purchase_url)
+								onPress={
+									() => handleClick(schedule.purchase_url) // Handles ticket purchase URL click.
 								}
 							>
 								<Text style={styles.time}>{schedule.time}</Text>

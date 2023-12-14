@@ -16,7 +16,7 @@ export default StyleSheet.create({
 		marginHorizontal: 10,
 	},
 	image: {
-		width: 300, // or any desired size
+		width: 300,
 		height: 400,
 	},
 	textDescription: {
@@ -75,7 +75,15 @@ export default StyleSheet.create({
 		borderRadius: 24,
 		width: 150,
 		height: 40,
-		elevation: 5,
+		elevation: 2,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 7,
+			height: 7,
+		},
+		shadowOpacity: 0.3,
+		shadowRadius: 3.84,
+		marginBottom: 10,
 	},
 	footer: {
 		height: 40,

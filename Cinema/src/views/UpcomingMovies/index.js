@@ -9,6 +9,7 @@ import {
 } from "../../redux/features/upcoming/upcomingSlice";
 import UpcomingList from "../../components/UpcomingList";
 
+// Upcoming component for displaying a list of upcoming movies.
 const Upcoming = ({ route }) => {
 	const dispatch = useDispatch();
 	const upcomingMovies = useSelector(selectUpcomingMovies);
@@ -19,22 +20,27 @@ const Upcoming = ({ route }) => {
 		dispatch(fetchUpcomingMoviesAsync());
 	}, [dispatch]);
 
+	// Displays a loading message while the data is being fetched.
 	if (isLoading) {
 		return <Text>Loading data...</Text>;
 	}
 
+	// Displays an error message if there is an error in data fetching.
 	if (error) {
 		return <Text>Error occurred: {error.toString()}</Text>;
 	}
 
+  // Function to get the release date of a movie.
 	const getReleaseDate = (movie) => new Date(movie.releaseDateIS);
 
-	const sortedMovies = [...upcomingMovies].sort(
+	// Sorts the fetched movies by their release date.
+  const sortedMovies = [...upcomingMovies].sort(
 		(a, b) => getReleaseDate(a) - getReleaseDate(b)
 	);
-
+	
+// Renders the sorted list of upcoming movies.
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ flex: 1, backgroundColor: "white" }}>
 			{isLoading ? (
 				<Text>Loading movies</Text>
 			) : (

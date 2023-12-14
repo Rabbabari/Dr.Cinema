@@ -10,6 +10,7 @@ import {
 import CinemaInfo from "../../components/CinemaInfo";
 import MovieList from "../../components/MovieList";
 
+// CinemaDetails view for displaying the details of a specific cinema.
 const CinemaDetails = ({ route }) => {
 	const dispatch = useDispatch();
 	const cinema = route.params.cinema;
@@ -21,15 +22,18 @@ const CinemaDetails = ({ route }) => {
 		dispatch(fetchMoviesAsync());
 	}, [dispatch]);
 
+
+	// Displays a loading message while the data is being fetched.
 	if (isLoading) {
 		return <Text>Loading data...</Text>;
 	}
 
+	// Displays an error message if there is an error in data fetching.
 	if (error) {
 		return <Text>Error occurred: {error.toString()}</Text>;
 	}
 
-	// Filter movies based on cinema name
+	// Filters movies based on the selected cinema's name.
 	const filteredMovies = movies.filter(
 		(movie) =>
 			movie.showtimes &&
@@ -39,8 +43,9 @@ const CinemaDetails = ({ route }) => {
 			)
 	);
 
+	// Renders the MovieList component with filtered movies for the selected cinema.
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ flex: 1, backgroundColor: "white" }}>
 			<MovieList
 				movies={filteredMovies}
 				cinemaName={cinema.name}
