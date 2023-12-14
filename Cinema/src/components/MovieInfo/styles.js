@@ -16,7 +16,7 @@ export default StyleSheet.create({
 		marginHorizontal: 10,
 	},
 	image: {
-		width: 300, // or any desired size
+		width: 300,
 		height: 400,
 	},
 	textDescription: {
