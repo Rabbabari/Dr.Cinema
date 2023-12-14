@@ -1,0 +1,84 @@
+import { StyleSheet } from "react-native";
+
+export default StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+		paddingVertical: 10,
+		backgroundColor: "white",
+	},
+	movieName: {
+		fontWeight: "bold",
+		fontSize: 30,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+	},
+	image: {
+		width: 300, // or any desired size
+		height: 400,
+	},
+	textDescription: {
+		padding: 5,
+		fontSize: 16,
+		textAlign: "center",
+		marginHorizontal: 10,
+	},
+	showTimes: {
+		flexWrap: "wrap",
+		justifyContent: "center",
+		alignItems: "center",
+		paddingLeft: 150,
+		paddingRight: 150,
+	},
+	time: {
+		fontSize: 20,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+	},
+	ticket: {
+		fontSize: 16,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+		color: "blue",
+		textDecorationLine: "underline",
+	},
+	cinema: {
+		fontWeight: "bold",
+		fontSize: 30,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+	},
+	cinemaRoom: {
+		fontWeight: "bold",
+		fontSize: 16,
+		padding: 5,
+		textAlign: "center",
+		marginHorizontal: 10,
+	},
+	buttonText: {
+		// margin: 13,
+		textAlign: "center",
+		fontWeight: "bold",
+		fontSize: 20,
+	},
+	button: {
+		backgroundColor: "white",
+		paddingVertical: 5,
+		paddingHorizontal: 10,
+		borderWidth: 0,
+		borderColor: "black",
+		borderRadius: 24,
+		width: 150,
+		height: 40,
+		elevation: 5,
+	},
+	footer: {
+		height: 40,
+		backgroundColor: "white",
+	},
+});

@@ -9,14 +9,7 @@ const UpcomingList = ({ movies }) => {
 			<FlatList
 				numColumns={1}
 				data={movies}
-				renderItem={({ item }) => (
-					<UpcomingThumbnail
-						title={item.title}
-						releaseDate={item["release-dateIS"]}
-						poster={item.poster}
-						trailers={item.trailers}
-					/>
-				)}
+				renderItem={({ item }) => <UpcomingThumbnail {...item} />}
 				keyExtractor={(item) => item.id}
 				ListFooterComponent={Footer}
 				contentContainerStyle={{ flexGrow: 1 }}

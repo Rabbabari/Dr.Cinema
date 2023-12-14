@@ -2,40 +2,29 @@ import { Text, View, TouchableOpacity, Image, Linking } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 
-const UpcomingThumbnail = (props) => {
-	const { title, releaseDate, poster, trailers } = props;
+const formatDate = (date) => {
+	const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+	return date.toLocaleDateString("en-GB", options).replace(/\//g, ".");
+};
+const getFirstTrailerUrl = (trailers) => {
+	if (
+		trailers &&
+		trailers.length > 0 &&
+		trailers[0].results &&
+		trailers[0].results.length > 0
+	) {
+		return trailers[0].results[0].url;
+	}
+	return null;
+};
 
-	const formatDate = (date) => {
-		const options = { day: "2-digit", month: "2-digit", year: "numeric" };
-		return date.toLocaleDateString("en-GB", options).replace(/\//g, ".");
-	};
+const UpcomingThumbnail = (item) => {
+	const { navigate } = useNavigation();
 
-	const getFirstTrailerUrl = () => {
-		if (
-			trailers &&
-			trailers.length > 0 &&
-			trailers[0].results &&
-			trailers[0].results.length > 0
-		) {
-			return trailers[0].results[0].url;
-		}
-		return null;
-	};
-
-	const handleClick = (url) => {
-		Linking.canOpenURL(url)
-			.then((supported) => {
-				if (supported) {
-					Linking.openURL(url);
-				} else {
-					console.log("Don't know how to open URI: " + url);
-				}
-			})
-			.catch((err) => console.error("An error occurred", err));
-	};
-
-	const formattedDate = formatDate(new Date(releaseDate));
-	const trailer = getFirstTrailerUrl();
+	const title = item.title;
+	const formattedDate = formatDate(new Date(item["release-dateIS"]));
+	const poster = item.poster;
+	const trailer = getFirstTrailerUrl(item.trailers);
 
 	return (
 		<View style={styles.container}>
@@ -45,14 +34,12 @@ const UpcomingThumbnail = (props) => {
 			<View style={styles.info}>
 				<Text style={styles.text}>{title}</Text>
 				<Text style={styles.text}>Væntanleg {formattedDate}</Text>
-				{trailer && (
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() => handleClick(trailer)}
-					>
-						<Text style={styles.buttonText}>Trailer</Text>
-					</TouchableOpacity>
-				)}
+				<TouchableOpacity
+					style={styles.button}
+					onPress={() => navigate("Nánar", { ...item })}
+				>
+					<Text style={styles.buttonText}>Nánar</Text>
+				</TouchableOpacity>
 			</View>
 		</View>
 	);

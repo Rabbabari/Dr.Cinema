@@ -12,6 +12,7 @@ import Cinemas from "../views/Cinemas";
 import Upcoming from "../views/UpcomingMovies";
 import CinemaDetails from "../views/CinemaDetails";
 import MovieDetails from "../views/MovieDetails";
+import UpcomingDetails from "../views/UpcomingDetail";
 
 // Sets up all the routes in the app
 const Routes = () => {
@@ -43,6 +44,25 @@ const Routes = () => {
 				<Stack.Screen
 					name="Sýningartímar"
 					component={MovieDetails}
+					options={({ navigation }) => ({
+						headerRight: () => (
+							<TouchableOpacity
+								onPress={() => navigation.navigate("Forsíða")}
+								title="Home"
+							>
+								<AntDesign
+									style={styles.icon}
+									name="home"
+									size={26}
+									color="black"
+								/>
+							</TouchableOpacity>
+						),
+					})}
+				/>
+				<Stack.Screen
+					name="Nánar"
+					component={UpcomingDetails}
 					options={({ navigation }) => ({
 						headerRight: () => (
 							<TouchableOpacity
