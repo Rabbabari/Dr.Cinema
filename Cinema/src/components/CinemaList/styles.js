@@ -4,11 +4,11 @@ export default StyleSheet.create({
 	cinemaContainer: {
 		flex: 1,
 		flexDirection: "row",
-		backgroundColor: "white",
+		backgroundColor: "black",
 	},
 	footer: {
 		height: 30,
-		backgroundColor: "white",
+		backgroundColor: "black",
 	},
 	headerText: {
 		textAlign: "center",

@@ -1,6 +1,7 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 // CinemaThumbnail component for displaying individual cinema information.
 const CinemaThumbnail = (item) => {
@@ -13,8 +14,14 @@ const CinemaThumbnail = (item) => {
 			onPress={() => navigate("Sýningar", { cinema: item })} // Navigates to the "Sýningar" screen with the cinema item on press.
 		>
 			<View>
-				<Text style={styles.text}>{item.name}</Text>
-				<Text style={styles.text}>{item.website}</Text>
+				<Text style={styles.textName}>{item.name}</Text>
+				<Text style={styles.textWebsite}>{item.website}</Text>
+				<AntDesign
+					style={styles.arrow}
+					name='arrowright'
+					size={30}
+					color='white'
+				/>
 			</View>
 		</TouchableOpacity>
 	);

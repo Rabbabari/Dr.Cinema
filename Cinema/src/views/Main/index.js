@@ -24,20 +24,22 @@ const Main = () => {
 
 	// Renders the main screen.
 	return (
-		<View style={styles.container}>
+		<View style={styles.containerOne}>
 			<Image source={logo} style={styles.logo} />
-			<TouchableOpacity
-				style={styles.button}
-				onPress={() => navigation.navigate("Kvikmyndahús")}
-			>
-				<Text style={styles.buttonText}>Kvikmyndahús</Text>
-			</TouchableOpacity>
-			<TouchableOpacity
-				style={styles.button}
-				onPress={() => navigation.navigate("Væntanlegt")}
-			>
-				<Text style={styles.buttonText}>Væntanlegt</Text>
-			</TouchableOpacity>
+			<View style={styles.containerTwo}>
+				<TouchableOpacity
+					style={styles.button}
+					onPress={() => navigation.navigate("Kvikmyndahús")}
+				>
+					<Text style={styles.buttonText}>Kvikmyndahús</Text>
+				</TouchableOpacity>
+				<TouchableOpacity
+					style={styles.button}
+					onPress={() => navigation.navigate("Væntanlegt")}
+				>
+					<Text style={styles.buttonText}>Væntanlegt</Text>
+				</TouchableOpacity>
+			</View>
 		</View>
 	);
 };

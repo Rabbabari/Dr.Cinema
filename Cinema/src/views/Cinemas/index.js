@@ -39,9 +39,6 @@ const Cinemas = ({ route }) => {
 
 	return (
 		<View style={{ flex: 1, backgroundColor: "white" }}>
-			<Text style={styles.headerText}>
-				Veljið kvikmyndahús til að sjá sýningar
-			</Text>
 			<CinemaList cinemas={sortedCinemas} />
 		</View>
 	);

@@ -1,16 +1,19 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-	container: {
+	containerOne: {
 		flex: 1,
-		padding: 70,
+		backgroundColor: "black",
+		width: "100%",
+	},
+	containerTwo: {
+		paddingTop: 50,
 		alignItems: "center",
 		justifyContent: "space-around",
 		fontWeight: 100,
-		backgroundColor: "pink",
 	},
 	logo: {
-		width: 350,
+		width: "100%",
 		height: 350,
 	},
 	button: {
@@ -22,14 +25,6 @@ export default StyleSheet.create({
 		borderRadius: 24,
 		width: 300,
 		height: 80,
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 7,
-			height: 7,
-		},
-		shadowOpacity: 0.3,
-		shadowRadius: 3.84,
-		elevation: 5,
 	},
 	buttonText: {
 		fontSize: 30,

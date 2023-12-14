@@ -2,30 +2,31 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	button: {
-		backgroundColor: "white",
+		backgroundColor: "black",
 		alignSelf: "center",
 		padding: 17,
-		borderWidth: 0.17,
-		borderColor: "black",
-		borderRadius: 24,
+		borderWidth: 2,
+		borderColor: "white",
+		borderRadius: 30,
 		width: 300,
 		height: 70,
 		margin: 10,
 		marginVertical: 15,
-		elevation: 2,
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 7,
-			height: 7,
-		},
-		shadowOpacity: 0.3,
-		shadowRadius: 3.84,
 	},
-	text: {
-		color: "black",
-		fontSize: 16,
+	textName: {
+		color: "white",
+		fontSize: 20,
 		fontWeight: "bold",
-		textAlign: "center",
+		paddingLeft: 10,
+	},
+	textWebsite: {
+		color: "white",
+		fontSize: 14,
+		paddingLeft: 10,
+	},
+	arrow: {
+		alignSelf: "flex-end",
+		top: -40,
 	},
 });
 
