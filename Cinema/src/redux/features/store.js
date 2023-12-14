@@ -8,5 +8,7 @@ export default configureStore({
 		[cinemaApi.reducerPath]: cinemaApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(cinemaApi.middleware),
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}).concat(cinemaApi.middleware),
 });
