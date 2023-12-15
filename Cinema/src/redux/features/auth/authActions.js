@@ -6,8 +6,7 @@ import Constants from "expo-constants";
 
 const username = Constants.expoConfig.extra.REACT_APP_USERNAME;
 const password = Constants.expoConfig.extra.REACT_APP_PASSWORD;
-// const username = process.env.REACT_APP_USERNAME;
-// const password = process.env.REACT_APP_PASSWORD;
+
 if (!username || !password) {
 	throw new Error("Username or password not provided in enviorment variable");
 }

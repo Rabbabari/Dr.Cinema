@@ -20,6 +20,7 @@ export default StyleSheet.create({
 		backgroundColor: "white",
 		paddingVertical: 20,
 		paddingHorizontal: 40,
+		marginBottom: 50,
 		borderWidth: 0,
 		borderColor: "black",
 		borderRadius: 24,

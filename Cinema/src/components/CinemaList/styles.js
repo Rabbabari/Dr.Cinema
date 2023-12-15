@@ -10,13 +10,4 @@ export default StyleSheet.create({
 		height: 30,
 		backgroundColor: "black",
 	},
-	headerText: {
-		textAlign: "center",
-		fontWeight: "bold",
-		fontSize: 20,
-		color: "#333",
-		paddingTop: 20,
-		paddingBottom: 20,
-		backgroundColor: "white",
-	},
 });

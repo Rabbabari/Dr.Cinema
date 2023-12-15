@@ -27,7 +27,7 @@ const cinemasSlice = createSlice({
 	initialState: {
 		cinemas: [],
 		selectedCinema: null,
-		status: "idle", // "idle", "loading", "succeeded", "failed"
+		status: "idle",
 		error: null,
 	},
 	reducers: {
