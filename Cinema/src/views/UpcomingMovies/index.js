@@ -22,7 +22,7 @@ const Upcoming = () => {
 	}, [dispatch]);
 
 	// Function to get the release date of a movie.
-	const getReleaseDate = (movie) => new Date(movie.releaseDateIS);
+	const getReleaseDate = (movie) => new Date(movie["release-dateIS"]);
 
 	// Sorts the fetched movies by their release date.
 	const sortedMovies = [...upcomingMovies].sort(
