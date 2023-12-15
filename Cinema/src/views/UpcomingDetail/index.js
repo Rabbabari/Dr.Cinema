@@ -19,7 +19,6 @@ const UpcomingDetails = ({ route }) => {
 				trailers={movie.trailers}
 				date={movie["release-dateIS"]}
 			/>
-			{movie.trailers && <Trailer trailers={movie.trailers} />}
 		</View>
 	);
 };
