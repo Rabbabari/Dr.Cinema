@@ -1,7 +1,6 @@
 import { View } from "react-native";
 import UpcomingInfo from "../../components/UpcomingInfo";
 import styles from "../../styles/viewStyle";
-import Trailer from "../../components/Trailer";
 
 // UpcomingDetails view for displaying detailed information about an upcoming movie.
 const UpcomingDetails = ({ route }) => {
