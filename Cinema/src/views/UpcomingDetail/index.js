@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import UpcomingInfo from "../../components/UpcomingInfo";
+// import Trailer from "../../components/Trailer";
 import styles from "../../styles/viewStyle";
 
 // UpcomingDetails view for displaying detailed information about an upcoming movie.
@@ -18,6 +19,7 @@ const UpcomingDetails = ({ route }) => {
 				trailers={movie.trailers}
 				date={movie["release-dateIS"]}
 			/>
+			<View style={styles.footer}></View>
 		</View>
 	);
 };
