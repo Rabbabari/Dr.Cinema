@@ -6,10 +6,10 @@ export default StyleSheet.create({
 		flexDirection: "row",
 		paddingHorizontal: 10,
 		paddingTop: 10,
-		backgroundColor: "white",
+		backgroundColor: "black",
 	},
 	footer: {
 		height: 40,
-		backgroundColor: "white",
+		backgroundColor: "black",
 	},
 });

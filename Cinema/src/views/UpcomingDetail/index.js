@@ -1,5 +1,6 @@
-import { Text, View, TouchableOpacity, FlatList } from "react-native";
+import { View } from "react-native";
 import UpcomingInfo from "../../components/UpcomingInfo";
+import styles from "../../styles/viewStyle";
 
 // UpcomingDetails view for displaying detailed information about an upcoming movie.
 const UpcomingDetails = ({ route }) => {
@@ -7,7 +8,7 @@ const UpcomingDetails = ({ route }) => {
 
 	// Renders detailed information about the upcoming movie.
 	return (
-		<View style={{ flex: 1, backgroundColor: "white" }}>
+		<View style={styles.containerOne}>
 			<UpcomingInfo
 				name={movie.title}
 				poster={movie.poster}

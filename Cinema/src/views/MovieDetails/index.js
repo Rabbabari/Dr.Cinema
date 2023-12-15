@@ -1,5 +1,6 @@
-import { Text, View, TouchableOpacity, FlatList } from "react-native";
+import { View } from "react-native";
 import MovieInfo from "../../components/MovieInfo";
+import styles from "../../styles/viewStyle";
 
 // MovieDetails view for displaying detailed information about a specific movie.
 const MovieDetails = ({ route }) => {
@@ -7,7 +8,7 @@ const MovieDetails = ({ route }) => {
 
 	// Renders the detailed information of a movie.
 	return (
-		<View style={{ flex: 1, backgroundColor: "white" }}>
+		<View style={styles.containerOne}>
 			<MovieInfo
 				id={movie.id}
 				name={movie.name}

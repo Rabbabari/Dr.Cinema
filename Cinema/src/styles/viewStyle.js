@@ -31,4 +31,11 @@ export default StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 	},
+	loadingText: {
+		color: "white",
+		margin: 10,
+		textAlign: "center",
+		fontWeight: "bold",
+		fontSize: 20,
+	},
 });
