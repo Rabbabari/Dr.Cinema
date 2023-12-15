@@ -13,12 +13,6 @@ export default StyleSheet.create({
 		padding: 90,
 		margin: 10,
 	},
-	checkmark: {
-		position: "absolute",
-		top: 15,
-		right: 15,
-		fontSize: 16,
-	},
 	textName: {
 		fontWeight: "bold",
 		color: "white",

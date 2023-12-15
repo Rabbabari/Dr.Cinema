@@ -18,9 +18,9 @@ const CinemaThumbnail = (item) => {
 				<Text style={styles.textWebsite}>{item.website}</Text>
 				<AntDesign
 					style={styles.arrow}
-					name='arrowright'
+					name="arrowright"
 					size={30}
-					color='white'
+					color="white"
 				/>
 			</View>
 		</TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	fetchCinemasAsync,
@@ -8,7 +8,6 @@ import {
 	selectError,
 } from "../../redux/features/cinemas/cinemasSlice";
 import CinemaList from "../../components/CinemaList";
-// import styles from "../../components/CinemaList/styles";
 import styles from "../../styles/viewStyle";
 
 // Cinemas view for displaying a list of cinemas.
@@ -38,7 +37,12 @@ const Cinemas = () => {
 					An error occurred: {error.message}
 				</Text>
 			) : (
-				<CinemaList cinemas={sortedCinemas} />
+				<View style={styles.containerOne}>
+					<Text style={styles.text}>
+						Veljið kvikmyndahús til að sjá sýningar
+					</Text>
+					<CinemaList cinemas={sortedCinemas} />
+				</View>
 			)}
 		</View>
 	);

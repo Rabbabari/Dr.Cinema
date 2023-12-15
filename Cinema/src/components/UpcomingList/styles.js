@@ -9,7 +9,7 @@ export default StyleSheet.create({
 		backgroundColor: "black",
 	},
 	footer: {
-		height: 40,
+		height: 30,
 		backgroundColor: "black",
 	},
 });
