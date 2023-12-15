@@ -32,9 +32,9 @@ const Cinemas = () => {
 	return (
 		<View style={styles.containerOne}>
 			{isLoading ? (
-				<Text style={styles.loadingText}>Loading cinemas...</Text>
+				<Text style={styles.text}>Loading cinemas...</Text>
 			) : error ? (
-				<Text style={styles.errorText}>
+				<Text style={styles.text}>
 					An error occurred: {error.message}
 				</Text>
 			) : (
