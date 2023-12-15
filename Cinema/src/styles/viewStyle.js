@@ -31,7 +31,7 @@ export default StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 	},
-	loadingText: {
+	text: {
 		color: "white",
 		margin: 10,
 		textAlign: "center",

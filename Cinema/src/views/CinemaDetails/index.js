@@ -37,7 +37,7 @@ const CinemaDetails = ({ route }) => {
 	return (
 		<View style={styles.containerOne}>
 			{isLoading ? (
-				<Text style={styles.loadingText}>Loading movies...</Text>
+				<Text style={styles.text}>Loading movies...</Text>
 			) : error ? (
 				<Text style={styles.errorText}>
 					An error occurred: {error.message}
