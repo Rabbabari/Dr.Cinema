@@ -8,9 +8,10 @@ import {
 	selectUpcomingMoviesError,
 } from "../../redux/features/upcoming/upcomingSlice";
 import UpcomingList from "../../components/UpcomingList";
+import styles from "../../styles/viewStyle";
 
 // Upcoming component for displaying a list of upcoming movies.
-const Upcoming = ({ route }) => {
+const Upcoming = () => {
 	const dispatch = useDispatch();
 	const upcomingMovies = useSelector(selectUpcomingMovies);
 	const isLoading = useSelector(selectIsUpcomingMoviesLoading);
@@ -20,29 +21,23 @@ const Upcoming = ({ route }) => {
 		dispatch(fetchUpcomingMoviesAsync());
 	}, [dispatch]);
 
-	// Displays a loading message while the data is being fetched.
-	if (isLoading) {
-		return <Text>Loading data...</Text>;
-	}
-
-	// Displays an error message if there is an error in data fetching.
-	if (error) {
-		return <Text>Error occurred: {error.toString()}</Text>;
-	}
-
-  // Function to get the release date of a movie.
+	// Function to get the release date of a movie.
 	const getReleaseDate = (movie) => new Date(movie.releaseDateIS);
 
 	// Sorts the fetched movies by their release date.
-  const sortedMovies = [...upcomingMovies].sort(
+	const sortedMovies = [...upcomingMovies].sort(
 		(a, b) => getReleaseDate(a) - getReleaseDate(b)
 	);
-	
-// Renders the sorted list of upcoming movies.
+
+	// Renders the sorted list of upcoming movies.
 	return (
-		<View style={{ flex: 1, backgroundColor: "white" }}>
+		<View style={styles.containerOne}>
 			{isLoading ? (
-				<Text>Loading movies</Text>
+				<Text style={styles.loadingText}>Loading movies...</Text>
+			) : error ? (
+				<Text style={styles.errorText}>
+					An error occurred: {error.message}
+				</Text>
 			) : (
 				<UpcomingList movies={sortedMovies} />
 			)}

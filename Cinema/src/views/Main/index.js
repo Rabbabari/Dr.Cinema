@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-	fetchToken,
-	setAccessToken,
-} from "../../redux/features/auth/authActions";
+import { fetchToken } from "../../redux/features/auth/authActions";
 import { TouchableOpacity, View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import logo from "../../resources/logo.png";
-import styles from "./styles";
+import styles from "../../styles/viewStyle";
 
 // Main view, serving as the landing or home screen.
 const Main = () => {
