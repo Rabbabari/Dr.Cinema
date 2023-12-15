@@ -8,6 +8,11 @@ export default StyleSheet.create({
 		paddingVertical: 10,
 		backgroundColor: "black",
 	},
+	imageContainer:{
+		flex:1,
+		justifyContent:"center",
+		alignItems:"center",
+	},
 	movieName: {
 		color: "white",
 		fontWeight: "bold",

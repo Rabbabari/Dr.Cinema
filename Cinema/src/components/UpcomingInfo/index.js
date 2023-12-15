@@ -6,6 +6,7 @@ import {
 	Linking,
 	ScrollView,
 } from "react-native";
+import Trailer from "../Trailer";
 import styles from "./styles";
 
 // Function to format genres into a comma-separated string.
@@ -69,9 +70,15 @@ const UpcomingInfo = ({
 	// Renders the detailed information of the upcoming movie.
 	return (
 		<ScrollView style={{ flex: 1 }}>
-			<View style={styles.container}>
-				<Image style={styles.image} resizeMode="cover" source={photo} />
-			</View>
+			<ScrollView >
+        		{trailers && trailers.length > 0 ? (
+            			<Trailer trailers={trailers} />
+        		) : (
+					<View style={styles.imageContainer}>
+          				<Image style={styles.image} resizeMode="cover" source={{ uri: poster }} />
+					</View>
+				 )}
+      		</ScrollView>
 			<View style={styles.container}>
 				<Text style={styles.movieName}>{name}</Text>
 				<Text style={styles.textDescription}>{formattedDate}</Text>
