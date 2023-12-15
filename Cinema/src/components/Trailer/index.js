@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { Video } from "expo-av";
+
+import { WebView } from "react-native-webview";
+// import { Video } from "expo-av";
 import styles from "./styles";
 
 const getFirstTrailerUrl = (trailers) => {
@@ -18,14 +20,14 @@ const getFirstTrailerUrl = (trailers) => {
 // UpcomingInfo component for displaying detailed information about an upcoming movie.
 const Trailer = ({ trailers }) => {
 	const trailer = getFirstTrailerUrl(trailers);
+	console.log(trailer);
 
 	return (
 		<View style={styles.container}>
-			<Video
-				source={{ uri: trailer }}
-				style={styles.video}
-				useNativeControls
-				resizeMode="contain"
+			<WebView
+				source={{
+					uri: trailer,
+				}}
 			/>
 		</View>
 	);
