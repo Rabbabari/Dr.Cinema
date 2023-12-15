@@ -1,11 +1,4 @@
-import {
-	View,
-	Text,
-	TouchableOpacity,
-	Image,
-	Linking,
-	ScrollView,
-} from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 import Trailer from "../Trailer";
 import styles from "./styles";
 
@@ -38,19 +31,6 @@ const getFirstTrailerUrl = (trailers) => {
 	return null;
 };
 
-// Function to handle opening URLs.
-const handleClick = (url) => {
-	Linking.canOpenURL(url)
-		.then((supported) => {
-			if (supported) {
-				Linking.openURL(url);
-			} else {
-				console.log("Don't know how to open URI: " + url);
-			}
-		})
-		.catch((err) => console.error("An error occurred", err));
-};
-
 // UpcomingInfo component for displaying detailed information about an upcoming movie.
 const UpcomingInfo = ({
 	name,
@@ -62,7 +42,6 @@ const UpcomingInfo = ({
 	date,
 }) => {
 	const trailer = getFirstTrailerUrl(trailers); // Fetches the first trailer URL.
-	const photo = { uri: poster }; // Constructs the source object for the movie's poster image.
 	const formattedDate = formatDate(new Date(date)); // Formats the release date.
 	const formattedActors = formatActors(actors); // Formats the actors list.
 	const formattedGenres = formatGenres(genres); // Formats the genres list.
@@ -70,26 +49,22 @@ const UpcomingInfo = ({
 	// Renders the detailed information of the upcoming movie.
 	return (
 		<ScrollView style={{ flex: 1 }}>
-			<ScrollView >
-        		{trailers && trailers.length > 0 ? (
-            			<Trailer trailers={trailers} />
-        		) : (
+			<ScrollView>
+				{trailers && trailers.length > 0 ? (
+					<Trailer trailer={trailer} />
+				) : (
 					<View style={styles.imageContainer}>
-          				<Image style={styles.image} resizeMode="cover" source={{ uri: poster }} />
+						<Image
+							style={styles.image}
+							resizeMode="cover"
+							source={{ uri: poster }}
+						/>
 					</View>
-				 )}
-      		</ScrollView>
+				)}
+			</ScrollView>
 			<View style={styles.container}>
 				<Text style={styles.movieName}>{name}</Text>
 				<Text style={styles.textDescription}>{formattedDate}</Text>
-				{trailer && (
-					<TouchableOpacity
-						style={styles.button}
-						onPress={() => handleClick(trailer)}
-					>
-						<Text style={styles.buttonText}>Trailer</Text>
-					</TouchableOpacity>
-				)}
 				<Text style={styles.textDescription}>{plot}</Text>
 				<Text style={styles.textDescription}>{formattedGenres}</Text>
 				<Text style={styles.textDescription}>{formattedActors}</Text>
